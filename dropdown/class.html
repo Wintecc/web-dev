@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Slider</title>
+    <link rel="stylesheet" href="class.css">
+    <script src="https://kit.fontawesome.com/a5b8d93d54.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container" id="container">
+        <div id="side-menu" class="side-menu">
+            <img src="logo.jpg" alt="logo" class="logo">
+            <a href="#">Home</a>
+            <hr>
+            <a href="#">About</a>
+            <hr>
+            <a href="#">Contact</a>
+            <hr>
+            <a href="#">Career</a>
+            <hr>
+            <div class="icon">
+                <i class="fa-brands fa-facebook size"></i>
+                <i class="fa-brands fa-instagram size"></i>
+                <i class="fa-brands fa-whatsapp size"></i>
+            </div>
+        </div>
+        <button id="btt" class="btt">&#9776;</button>        
+        <div class="arrow">
+            <div class="sign-up-arrow"><i class="fa-solid fa-arrow-left "></i></div>
+        </div>
+        <div class="sign-up-box">            
+            <div class="sign-up-text">Already have an account?</div>
+            <form action="">
+                <label for="username">USERNAME:</label>
+                <input type="text" placeholder="Please Enter Your Username">
+                <label for="password">PASSWORD:</label>
+                <input type="password" name="password" id="password" placeholder="Please Enter Your Password">
+                <input type="submit" value="Log In">
+            </form>
+            <div class="sign-up-text"><a href="#">Forgot Password?</a></div>
+            <div class="sign-up-text">Don't have an account? <span><a href="#">Sign Up</a></span></div>
+        </div>
+        
+    </div>    
+    <script>
+        let btt = document.getElementById("btt");
+        let sideMenu = document.getElementById("side-menu");        
+        btt.addEventListener("click", function() {
+            // let sideMenu = document.getElementById("side-menu");
+            let container = document.getElementById("container");
+            if (sideMenu.style.width === "250px") {
+                sideMenu.style.width = "0";
+                container.style.marginLeft = "0";
+                btt.innerHTML = '&#9776;';
+            } else {
+                sideMenu.style.width = "250px";
+                container.style.marginLeft = "250px";
+                btt.innerHTML ='&times;';
+                signUpBox.classList.remove("arrow-toggle");
+                arrow.classList.remove("arrow-toggle");
+                arrows.innerHTML = '<i class="fa-solid fa-arrow-left"></i>'
+                
+            }
+        });
+
+        var arrow = document.querySelector(".arrow");
+        var arrows = document.querySelector(".sign-up-arrow");
+        var signUpBox = document.querySelector(".sign-up-box");
+        arrow.addEventListener("click", function() {
+            // let signUpBox = document.querySelector(".sign-up-box");
+            signUpBox.classList.toggle("arrow-toggle");
+            arrow.classList.toggle("arrow-toggle");
+            if (arrow.classList.contains("arrow-toggle")) {
+                // arrows.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+                arrows.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+                arrows.style.setProperty('font-size', '85px');
+                sideMenu.style.width = "0";
+                container.style.marginLeft = "0";
+                btt.innerHTML ='&#9776;';
+
+            } else {
+                arrows.innerHTML = '<i class="fa-solid fa-arrow-left"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
